@@ -1,0 +1,29 @@
+{
+  "name": "scoreboard",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Live Football World Cup Score Board Library",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && vite build",
+    "test": "vitest",
+    "lint": "eslint"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "globals": "^16.1.0",
+    "prettier": "3.5.3",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.32.1",
+    "vite": "^6.3.5",
+    "vitest": "^3.1.4"
+  },
+  "dependencies": {
+    "uuid": "^11.1.0"
+  }
+}

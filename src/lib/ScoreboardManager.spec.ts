@@ -1,8 +1,8 @@
 import { describe, it, expect, afterAll, beforeEach, vi, beforeAll } from 'vitest';
-import { Scoreboard } from './Scoreboard.ts';
+import { ScoreboardManager } from './ScoreboardManager.ts';
 
-describe('Scoreboard', () => {
-    let scoreboard: Scoreboard;
+describe('ScoreboardManager', () => {
+    let scoreboard: ScoreboardManager;
 
     beforeAll(() => {
         // Mock Date.now to ensure consistent timestamps
@@ -10,7 +10,7 @@ describe('Scoreboard', () => {
     });
 
     beforeEach(() => {
-        scoreboard = new Scoreboard();
+        scoreboard = new ScoreboardManager();
     });
 
     afterAll(() => {
@@ -94,27 +94,25 @@ describe('Scoreboard', () => {
 
     describe('getSummary', () => {
         it('returns matches ordered by total score and start time', () => {
-            // Set up matches from the example
+            // Set up matches from the example with the correct score
             vi.setSystemTime(new Date('2025-01-01T12:00:00Z'));
             const match_1 = scoreboard.startMatch('Mexico', 'Canada');
+            scoreboard.updateScore(match_1.id, 0, 5);
 
             vi.setSystemTime(new Date('2025-01-01T12:15:00Z'));
             const match_2 = scoreboard.startMatch('Spain', 'Brazil');
+            scoreboard.updateScore(match_2.id, 10, 2);
 
             vi.setSystemTime(new Date('2025-01-01T12:30:00Z'));
             const match_3 = scoreboard.startMatch('Germany', 'France');
+            scoreboard.updateScore(match_3.id, 2, 2);
 
             vi.setSystemTime(new Date('2025-01-01T12:45:00Z'));
             const match_4 = scoreboard.startMatch('Uruguay', 'Italy');
+            scoreboard.updateScore(match_4.id, 6, 6);
 
             vi.setSystemTime(new Date('2025-01-01T13:00:00Z'));
             const match_5 = scoreboard.startMatch('Argentina', 'Australia');
-
-            // Update scores
-            scoreboard.updateScore(match_1.id, 0, 5);
-            scoreboard.updateScore(match_2.id, 10, 2);
-            scoreboard.updateScore(match_3.id, 2, 2);
-            scoreboard.updateScore(match_4.id, 6, 6);
             scoreboard.updateScore(match_5.id, 3, 1);
 
             // Get a summary

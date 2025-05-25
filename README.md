@@ -24,12 +24,12 @@ A simple, in-memory TypeScript module for tracking live football matches — inc
 ## 🚀 Usage Example
 
 ```ts
-import { Scoreboard } from "./Scoreboard.ts";
+import { Scoreboard } from './Scoreboard.ts';
 
 const scoreboard = new Scoreboard();
 
 // Start a new match
-const match = scoreboard.startMatch("Spain", "Brazil");
+const match = scoreboard.startMatch('Spain', 'Brazil');
 
 // Update the score
 scoreboard.updateScore(match.id, 3, 1);

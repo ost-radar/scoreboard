@@ -12,7 +12,6 @@ export default defineConfig({
 
     plugins: [
         dts({
-            include: ['./src/lib/**', './src/types/**'],
             rollupTypes: true,
         }),
     ],
